@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="text1">
+      <h1>To my BeBe</h1>
+      <p>Dear BeBe,</p>
+      <h2>
+        i didn't text you since sunday cause of the way you spoke to me there
+        was nothing wrong with what you said o, but the way you said it pissed
+        me off real bad.. and lately you don't see any fault in any argument or
+        isuue we have, you could have texted after that day to know what
+        happened but you dey form hard girl lollllll.... omo there is something
+        you posted that i screenshot, the day go come wey i go show you but it
+        is not now i was surprised tho but it is what it is...... so yeah i
+        didn't directly casue you are still pissing me off.... i dont think i
+        need to apologise casue i didn't do anything wrong..... i was even
+        checking your snap just to see you ignored all my snaps because i did
+        what? nothing.... now you said i should ask and not conclude but bebe
+        you do it most times... ok i said something about viewing my staus late
+        which was right you most times check my status late and you will post
+        you go con dey reply me for night...... anyways i don't have much to
+        say... if you think i should apologise kindly let me know.... kindly
+        include name in the reply below 👇 👇
+      </h2>
+    </div>
+    <br />
+
+    <form id="emailForm">
+      <textarea
+        id="message"
+        placeholder="Reply From:"
+        rows="20"
+        style="width: 91%; margin-left: 17px"
+      ></textarea
+      ><br />
+      <button
+        id="sendButton"
+        type="button"
+        style="
+          padding-left: 20px;
+          padding-right: 20px;
+          font-size: 19px;
+          margin-left: 17px;
+          border-radius: 10px;
+          border: pink;
+          background-color: rgb(241, 171, 194);
+        "
+      >
+        Send
+      </button>
+    </form>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      // Initialize EmailJS with your public key
+      emailjs.init("urxlRcu5KIHPTYmnS");
+
+      // Attach click event listener to the sendButton
+      document
+        .getElementById("sendButton")
+        .addEventListener("click", function () {
+          sendEmail(); // Call sendEmail function when the button is clicked
+        });
+
+      function sendEmail() {
+        var message = (document.getElementById("message").value =
+          "From: Your Name\n");
+
+        // Perform basic form validation
+        if (!message) {
+          alert("Please fill in the message field.");
+          return;
+        }
+
+        // Send the email using EmailJS
+        emailjs
+          .send("service_ms7gh54", "template_yrn9mvk", {
+            message: message,
+          })
+          .then(
+            function (response) {
+              console.log("Email sent successfully!", response);
+              alert("Email sent successfully!");
+            },
+            function (error) {
+              console.error("Email sending failed:", error);
+              alert("Failed to send email. Please try again later.");
+            }
+          );
+      }
+    </script>
+  </body>
+</html>
